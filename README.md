@@ -47,23 +47,32 @@ Then, import and register the component:
 import React, { Component } from "react";
 import Select from 'react-weblineindia-dropdown'
 class Test extends Component {
-constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
-      gender : [
-        { name: "abc", id: "1" },
-        { name: "pqr", id: "2" },
-        { name: "xyz", id: "3"}
-    }
-  render(){
-    retrun(
+      gender: [
+        { label: "abc", value: "1" },
+        { label: "pqr", value: "2" },
+        { label: "xyz", value: "3" },
+      ],
+    };
+  }
+
+  setValues = (values) => {
+    // Handle selected values here
+  };
+
+  render() {
+    return (
       <div>
-      <Select options={options} onChange={(values) => this.setValues(values)} />
+        <Select
+          options={this.state.gender}
+          onChange={(values) => this.setValues(values)}
+        />
       </div>
-    )
+    );
   }
 }
-export default Test
 
 ```
 
